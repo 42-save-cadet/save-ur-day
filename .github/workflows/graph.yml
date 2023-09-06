@@ -1,0 +1,27 @@
+name: Generate contribution graph
+
+# Action이 언제 구동될지 결정
+
+on:
+  schedule:
+    # 6시간마다 한 번(수정 가능)
+    - cron: "0 */6 * * *"
+
+  # 자동으로 Action이 실행되도록 함
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: generate-snake-game-from-github-contribution-grid
+        uses: Platane/snk/svg-only@v3.0.0
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          outputs: |
+            dist/github-contribution-grid-snake.svg
+            dist/github-contribution-grid-snake-dark.svg?palette=github-dark
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
+            
