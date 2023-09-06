@@ -19,7 +19,7 @@ jobs:
       - name: generate-snake-game-from-github-contribution-grid
         uses: Platane/snk/svg-only@v3.0.0
         with:
-          github_user_name: cheseo
+          github_user_name: veggie-garden
           outputs: |
             dist/github-contribution-grid-snake.svg
             dist/github-contribution-grid-snake-dark.svg?palette=github-dark
